@@ -1,0 +1,33 @@
+<%- include('./templates/header') %> 
+    <main class="container my-5">
+        <h1 class="text-center mb-5" >SERVICIOS</h1>
+        <a href="/servicios/nuevo" class="btn btn-danger my-3">Añadir servicio</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Servicio</th>
+                    <th>Descripcion</th>
+                    <th>Fecha</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% servicios.forEach(({nombre,comentario,fecha,id}) => { %>
+                    <tr>
+                        <td> <%= nombre %> </td>
+                        <td> <%= comentario %> </td>
+                        <td> <%= fecha.toLocaleDateString('es-ES') %> </td>
+                        <td> <a href="servicios/editar/<%=id%>" class="btn btn-danger bnt-sm">Editar</a></td>
+                        <td> <a href="servicios/<%=id%>" class="btn btn-danger bnt-sm">Ver</a></td>
+                        <td> <a href="servicios/eliminar/<%=id%>" class="btn btn-danger bnt-sm">Eliminar</a></td>
+                        
+                    </tr>
+                <% }) %>
+            </tbody>
+          
+        </table>
+    </main>
+<%- include('./templates/footer') %> 
